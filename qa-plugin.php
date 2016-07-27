@@ -1,7 +1,7 @@
 <?php
 
 /*
-	Plugin Name: Best Answer Restriction Plugin
+	Plugin Name: Best Answer Restriction
 	Plugin URI:
 	Plugin Description: A Best Answer selection only once.
 	Plugin Version: 1.0
@@ -19,4 +19,4 @@ if (!defined('QA_VERSION')) { // don't allow this page to be requested directly 
 }
 
 // layer
-// qa_register_plugin_layer('qa-ba-restriction.php','Best Answer Restriction Layer');
+qa_register_plugin_layer('qa-ba-restriction-layer.php','Best Answer Restriction Layer');
