@@ -4,7 +4,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 {
 
 	private $selchildid;
-	
+
 	public function q_view($q_view)
 	{
 		$this->selchildid = $q_view['raw']['selchildid'];
@@ -35,16 +35,12 @@ class qa_html_theme_layer extends qa_html_theme_base
 
 				$new_tags = preg_replace($pattern, '', $old_tags);
 				$new_tags .= ' data-args="' . $m2[1] .'"';
-				if ($this->selchildid !== $post['raw']['postid']) {
-					$new_tags .= ' disabled="disabled"';
+				if (isset($this->selchildid) && $this->selchildid !== $post['raw']['postid']) {
+					$new_tags = null;
 				}
 				@$post['select_tags'] = $new_tags;
 			} elseif (isset($post['unselect_tags'])) {
-				// name属性だけ取得
-				$pattern = "/name\s?=\s?[\"\']([^\"\']+)[\"\']/i";
-				preg_match($pattern, $post['unselect_tags'], $m);
-				$new_tag = $m[0];
-				@$post['unselect_tags'] = $new_tag . ' disabled="disabled"';
+				@$post['unselect_tags'] = null;
 			}
 		}
 		// print_r($post);
