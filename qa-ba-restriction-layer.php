@@ -15,6 +15,10 @@ class qa_html_theme_layer extends qa_html_theme_base
 	{
 		qa_html_theme_base::body_footer();
 		if ($this->template === 'question' && qa_get_logged_in_level() < QA_USER_LEVEL_ADMIN) {
+			$msg = qa_lang_html('qa_ba_restriction_lang/select_confirm');
+			$this->output('<script type="text/javascript">');
+			$this->output('var confirm_msg = "'.$msg.'";');
+			$this->output('</script>');
 			$plugin_url = qa_path('qa-plugin/q2a-best-answer-restriction/');
 			$script = $plugin_url . 'ba-restriction.js';
 			$this->output('<script type="text/javascript" src="'.$script.'"></script>');

@@ -18,5 +18,7 @@ if (!defined('QA_VERSION')) { // don't allow this page to be requested directly 
 	exit;
 }
 
+// languages
+qa_register_plugin_phrases('qa-ba-restriction-lang-*.php', 'qa_ba_restriction_lang');
 // layer
 qa_register_plugin_layer('qa-ba-restriction-layer.php','Best Answer Restriction Layer');
